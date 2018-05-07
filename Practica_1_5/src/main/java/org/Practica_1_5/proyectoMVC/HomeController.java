@@ -149,6 +149,7 @@ public class HomeController {
 			itemsCarrito.get(itemsCarrito.indexOf(articulo)).setCantidad(itemsCarrito.get(itemsCarrito.indexOf(articulo)).getCantidad()+1);
 			}else {
 		itemsCarrito.add(articulo);
+		itemsCarrito.get(itemsCarrito.indexOf(articulo)).setCantidad(itemsCarrito.get(itemsCarrito.indexOf(articulo)).getCantidad()+1);
 		sesion.setAttribute("carrito", itemsCarrito);
 		sesion.setAttribute("tam",itemsCarrito.size());
 			}
