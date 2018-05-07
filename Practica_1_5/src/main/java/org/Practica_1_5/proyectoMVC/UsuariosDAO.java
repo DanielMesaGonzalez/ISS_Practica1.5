@@ -55,10 +55,10 @@ public class UsuariosDAO implements UsuarioDAOInterface{
 	}
 	
 	@Override
-	public void ModificarDatos(UsuariosDTO usuario) {
-		String sql="update usuarios set Nombre=? where email=?";
-		Object[ ] parametros = {usuario.getNombre(),usuario.getApellidos(),usuario.getEmail(),usuario.getClave()};
-		UsuarioMapper mapper=new UsuarioMapper();
+	public void ModificarDatos(UsuariosDTO usuario,UsuariosDTO oldUser) {
+		String sql="update usuarios SET Nombre = ?,Apellidos = ?,Email = ?,clave = ? where Email = ?";
+		Object[ ] parametros = {usuario.getNombre(),usuario.getApellidos(),usuario.getEmail(),usuario.getClave(),oldUser.getEmail()};
+		//UsuarioMapper mapper=new UsuarioMapper();
 		this.jdbcTemplate.update(sql,parametros);
 		
 	}

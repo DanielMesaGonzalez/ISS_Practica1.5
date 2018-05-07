@@ -20,8 +20,8 @@ public class ProductosDAO implements ProductoDAOInterface{
 	}
 	
 	@Autowired
-	public void setDataSource(DataSource dataSource) {
-	this.jdbcTemplate = new JdbcTemplate(dataSource);
+	public void setDataSource(DataSource dataSource2) {
+	this.jdbcTemplate = new JdbcTemplate(dataSource2);
 	}
 
 
@@ -37,7 +37,7 @@ public class ProductosDAO implements ProductoDAOInterface{
 
 	@Override
 	public ProductosDTO BuscarProducto(int IdProducto) {
-		String sql = "select * from usuarios where email = ?";
+		String sql = "select * from productos where id = ?";
 		Object[] parametros = {IdProducto};   //Array de objetos
 		ProductoMapper mapper = new ProductoMapper();
 		List<ProductosDTO> productos = this.jdbcTemplate.query(sql, parametros, mapper);

@@ -6,6 +6,6 @@ public interface UsuarioDAOInterface {
 	public void InsertaUsuario(UsuariosDTO usuario);
 	public List<UsuariosDTO> leeUsuario();
 	public UsuariosDTO BuscarUsuario(String email);
-	public void ModificarDatos(UsuariosDTO usuario);
+	public void ModificarDatos(UsuariosDTO usuario, UsuariosDTO oldUser);
 
 }

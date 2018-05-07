@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="st" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html lang="es">
 <head>
   <title>Tienda</title>
   <meta charset="utf-8">
@@ -51,14 +51,14 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Inicio</a></li>
-        <li><a href="/proyectoMVC/Productos">Productos</a></li>
+        <li><a href="Productos">Productos</a></li>
         <li><a href="#">Deals</a></li>
         <li><a href="#">Stores</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/proyectoMVC/CambioDatos"><span class="glyphicon glyphicon-user"></span> <st:out value="${nusuario.nombre}"/></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a></li>
+        <li><a href="CambioDatos"><span class="glyphicon glyphicon-user"></span> <st:out value="${nusuario.nombre}"/></a></li>
+        <li><a href="carrito"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito ${tam}</a></li>
       </ul>
     </div>
   </div>
@@ -66,30 +66,46 @@
 
 <div class="container">    
   <div class="row">
+  <st:forEach items= "${lista}" var="producto">
+  <st:if test= "${producto.id == 1}">
     <div class="col-sm-4">
       <div class="panel panel-primary">
-        <div class="panel-heading">Pack Merchandising Uncharted 4</div>
+        <div class="panel-heading"><st:out value="${producto.nombre}"/></div>
         <div class="panel-body"><img src="resources/imagenes/img1.png" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-footer">Precio:${producto.precio}</div>
+        <div><form action="añadir" method=post>
+		 <input type="hidden" name="articulo" value="1">
+<input type=submit value=Añadir></form></div>
       </div>
     </div>
+    </st:if>
+      <st:if test= "${producto.id == 2}">
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">Pack Merchandising STAR WARS</div>
+        <div class="panel-heading">${producto.nombre}</div>
         <div class="panel-body"><img src="resources/imagenes/img2.png" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-footer">Precio:${producto.precio}</div>
+              <div><form action="añadir" method=post>
+		 <input type="hidden" name="articulo" value="2">
+<input type=submit value=Añadir></form></div>
       </div>
     </div>
+    </st:if>
+    <st:if test= "${producto.id == 3}">
     <div class="col-sm-4"> 
       <div class="panel panel-success">
-        <div class="panel-heading">Pack Merchandising Nintendo</div>
+        <div class="panel-heading">${producto.nombre}</div>
         <div class="panel-body"><img src="resources/imagenes/img3.png" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="panel-footer">Precio:${producto.precio}</div>
+              <div><form action="añadir" method=post>
+		 <input type="hidden" name="articulo" value="3">
+<input type=submit value=Añadir></form></div>
       </div>
     </div>
+    </st:if>
+    </st:forEach>
   </div>
 </div><br>
-
 <div class="container">    
   <div class="row">
     <div class="col-sm-4">
@@ -114,7 +130,7 @@
       </div>
     </div>
   </div>
-</div><br><br>
 
+</div><br><br>
 </body>
 </html>

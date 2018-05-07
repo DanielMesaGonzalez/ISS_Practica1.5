@@ -10,10 +10,9 @@ public class ProductoMapper implements RowMapper<ProductosDTO>{
 	public ProductosDTO mapRow(ResultSet rs, int rowNum) throws SQLException{
 		
      ProductosDTO producto = new ProductosDTO();
-     producto.setNombreProducto(rs.getString("NombreProducto"));
-     producto.setIdProducto(rs.getInt("IdProducto"));
-     producto.setIdProducto(rs.getInt("Cantidad"));
-     producto.setIdProducto(rs.getInt("Precio"));
+     producto.setNombre(rs.getString("Nombre"));
+     producto.setId(rs.getInt("id"));
+     producto.setPrecio(rs.getFloat("Precio"));
 return producto;
 }
 }
