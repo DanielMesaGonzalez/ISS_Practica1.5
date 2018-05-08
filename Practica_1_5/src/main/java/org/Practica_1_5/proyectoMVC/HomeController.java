@@ -160,8 +160,16 @@ public class HomeController {
 	public String carrito(HttpServletRequest request,Locale locale, Model model) {
 		HttpSession sesion = request.getSession(true);
 		model.addAttribute("items",itemsCarrito);
+		//SumaTotal;
+		int i=0;
+		float suma=0;
+		for (i=0;i<itemsCarrito.size();i++) {
+			suma=suma+itemsCarrito.get(i).getPrecio()*itemsCarrito.get(i).getCantidad();
+				
+		}
+		model.addAttribute("suma", suma);	
 		//itemsCarrito.get(0);
-		//int precioTotal;
+		
 			return "Carrito";
 	}
 	
